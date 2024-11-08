@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Neue Aufgabe</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/styles.css' %}">
+</head>
+<body>
+    <h1>Neue Aufgabe hinzufügen</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Aufgabe hinzufügen</button>
+    </form>
+    <a href="{% url 'task_list' %}">Zurück zur To-Do Liste</a>
+</body>
+</html>
