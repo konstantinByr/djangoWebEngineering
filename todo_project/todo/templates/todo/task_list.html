@@ -6,22 +6,31 @@
     <link rel="stylesheet" type="text/css" href="{% static 'todo/styles.css' %}">
 </head>
 <body>
-    <h1>To-Do Liste</h1>
-    <a href="{% url 'add_task' %}">Neue Aufgabe hinzufügen</a>
-    <ul>
-        {% for task in tasks %}
-            <li>
-                {{ task.title }} - 
-                {% if task.completed %}
-                    Erledigt
-                    <!-- Lösch-Button nur für erledigte Aufgaben -->
-                    <a href="{% url 'delete_task' task.id %}">Löschen</a>
-                {% else %}
-                    Offen
-                    <a href="{% url 'delete_task' task.id %}">Löschen</a>
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
+    <header>
+        <h1>To-Do Liste</h1>
+        <a class="add-task-btn" href="{% url 'add_task' %}">Neue Aufgabe hinzufügen</a>
+    </header>
+    <main>
+        <ul>
+            {% for task in tasks %}
+                <li>
+                    <form method="post" action="{% url 'update_task' task.id %}">
+                        {% csrf_token %}
+                        <label>
+                            <input type="checkbox" name="completed" {% if task.completed %}checked{% endif %} onChange="this.form.submit()">
+                            {{ task.title }}
+                        </label>
+                    </form>
+                    <a class="delete-task-btn" href="{% url 'delete_task' task.id %}">Löschen</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="logout-btn">Logout</button>
+        </form>
+    </footer>
 </body>
 </html>

@@ -2,8 +2,8 @@
 
 /* Allgemeine Stile */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f8f8; /* Eiweiß-Hintergrund */
     color: #333;
     margin: 0;
     padding: 20px;
@@ -12,90 +12,111 @@ body {
     align-items: center;
 }
 
+header {
+    width: 100%;
+    max-width: 800px; /* Erhöhte maximale Breite */
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
 h1 {
-    color: #2c3e50;
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 10px;
 }
 
-a {
+a.add-task-btn {
     text-decoration: none;
-    color: #3498db;
-    margin: 0 5px;
+    color: #fff;
+    background-color: #1abc9c; /* Türkis */
+    padding: 10px 20px; /* Erhöhte Polsterung */
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    margin: 10px 0; /* Abstand zum oberen und unteren Rand */
 }
 
-a:hover {
-    text-decoration: underline;
+a.add-task-btn:hover {
+    background-color: #16a085; /* Dunkleres Türkis */
+    transform: translateY(-3px);
 }
 
-/* Container für Aufgaben */
+.logout-form {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+button.logout-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1abc9c; /* Türkis */
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+button.logout-btn:hover {
+    background-color: #16a085; /* Dunkleres Türkis */
+    transform: translateY(-3px);
+}
+
 ul {
     list-style-type: none;
     padding: 0;
-    width: 300px;
+    width: 100%;
+    max-width: 800px; /* Erhöhte maximale Breite */
 }
 
 li {
-    background-color: #ffffff;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    background-color: #fff;
+    padding: 20px; /* Erhöhte Polsterung */
+    margin-bottom: 15px; /* Erhöhter Abstand zwischen den Aufgaben */
+    border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
 }
 
-/* Buttons */
-.add-task-btn, .delete-task-btn {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 14px;
+li:hover {
+    transform: translateY(-5px);
 }
 
-.add-task-btn {
-    background-color: #2ecc71;
+label {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Nimmt den verfügbaren Platz ein */
+}
+
+input[type="checkbox"] {
+    margin-right: 15px; /* Erhöhter Abstand zur Checkbox */
+    transform: scale(1.5);
+}
+
+a.delete-task-btn {
+    text-decoration: none;
     color: #fff;
-}
-
-.delete-task-btn {
-    background-color: #e74c3c;
-    color: #fff;
-}
-
-.delete-task-btn:hover, .add-task-btn:hover {
-    opacity: 0.8;
-}
-
-/* Formular */
-form {
-    background-color: #fff;
-    padding: 20px;
+    background-color: #1abc9c; /* Türkis */
+    padding: 10px 20px; /* Erhöhte Polsterung */
     border-radius: 5px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    width: 300px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    margin-left: 15px; /* Abstand zum Text */
+}
+
+a.delete-task-btn:hover {
+    background-color: #16a085; /* Dunkleres Türkis */
+    transform: translateY(-3px);
+}
+
+footer {
+    margin-top: 20px;
     text-align: center;
-}
-
-input[type="text"] {
     width: 100%;
-    padding: 8px;
-    margin: 10px 0;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-}
-
-button {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 3px;
-    background-color: #3498db;
-    color: white;
-    cursor: pointer;
-}
-
-button:hover {
-    opacity: 0.8;
+    max-width: 800px; /* Erhöhte maximale Breite */
 }
